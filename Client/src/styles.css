@@ -1,0 +1,109 @@
+/* frontend/src/styles.css */
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  h1, h2 {
+    color: #4CAF50;
+  }
+  
+  /* Header and Navigation */
+  nav {
+    background-color: #4CAF50;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Page Container */
+  .container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Recipe List */
+  .recipe-list {
+    margin-top: 20px;
+  }
+  
+  .recipe-list h3 {
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .recipe-list p {
+    margin: 5px 0;
+    color: #666;
+  }
+  
+  .recipe-list a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .recipe-list a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Recipe Form */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form input, form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+  }
+  
+  form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  form button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Recipe Details */
+  .recipe-details {
+    margin-top: 20px;
+  }
+  
+  .recipe-details h2 {
+    margin-bottom: 10px;
+  }
+  
+  .recipe-details p {
+    margin-bottom: 5px;
+  }
+  
