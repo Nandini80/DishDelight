@@ -1,27 +1,30 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import RecipeList from "./components/RecipeList";
 import RecipeForm from "./components/RecipeForm";
 import RecipeDetail from "./components/RecipeDetail";
 import RecipeEdit from "./components/RecipeEdit";
-import './styles.css'; 
+import Navbarr from "./components/Navbar";
+import Footer from "./components/Footer";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
 const App = () => {
   return (
     <Router>
-      <nav>
-        <Link to="/">Home</Link> 
-        <span>|</span> 
-        <Link to="/recipes/new">Add Recipe</Link>
-      </nav>
-      <div className="container">
-        <h1>Recipe Sharing Platform</h1>
-        <Routes>
-          <Route path="/" element={<RecipeList />} />
-          <Route path="/recipes/new" element={<RecipeForm />} />
-          <Route path="/recipes/:id" element={<RecipeDetail />} />
-          <Route path="/recipes/:id/edit" element={<RecipeEdit />} />
-        </Routes>
+      <div className="app-container">
+        <Navbarr />
+        <div className="main-content">
+          <div className="container mt-4">
+            <Routes>
+              <Route path="/" element={<RecipeList />} />
+              <Route path="/recipes/new" element={<RecipeForm />} />
+              <Route path="/recipes/:id" element={<RecipeDetail />} />
+              <Route path="/recipes/:id/edit" element={<RecipeEdit />} />
+            </Routes>
+          </div>
+        </div>
+        <Footer />
       </div>
     </Router>
   );
