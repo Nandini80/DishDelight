@@ -1,6 +1,5 @@
 const Recipe = require("../models/Recipe");
 
-// Get all recipes
 exports.getAllRecipes = async (req, res) => {
   try {
     const recipes = await Recipe.find();
@@ -10,7 +9,6 @@ exports.getAllRecipes = async (req, res) => {
   }
 };
 
-// Create a new recipe
 exports.createRecipe = async (req, res) => {
   const recipe = new Recipe(req.body);
   try {
@@ -21,7 +19,6 @@ exports.createRecipe = async (req, res) => {
   }
 };
 
-// Update a recipe
 exports.updateRecipe = async (req, res) => {
   try {
     const updatedRecipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -32,7 +29,6 @@ exports.updateRecipe = async (req, res) => {
   }
 };
 
-// Delete a recipe
 exports.deleteRecipe = async (req, res) => {
   try {
     await Recipe.findByIdAndDelete(req.params.id);

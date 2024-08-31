@@ -15,7 +15,7 @@ const RecipeForm = () => {
     const newRecipe = { title, ingredients, instructions, category };
     try {
       await axios.post("http://localhost:5000/api/recipes", newRecipe);
-      navigate("/"); // Redirect to the homepage after adding the recipe
+      navigate("/"); 
     } catch (error) {
       console.error("There was an error creating the recipe!", error);
     }

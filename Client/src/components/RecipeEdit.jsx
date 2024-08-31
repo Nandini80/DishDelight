@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
-import { Form, Button, Card, Container, Row, Col } from "react-bootstrap";
+import { Form, Button, Card, Container, Col } from "react-bootstrap";
 
 const RecipeEdit = () => {
   const { id } = useParams();
@@ -30,9 +30,20 @@ const RecipeEdit = () => {
 
     try {
       await axios.put(`http://localhost:5000/api/recipes/${id}`, updatedRecipe);
-      navigate(`/recipes/${id}`); // Navigate to the recipe detail page after updating
+      navigate(`/recipes/${id}`);
     } catch (error) {
       console.error("Error updating the recipe:", error);
+    }
+  };
+
+  const handleDelete = async () => {
+    if (window.confirm("Are you sure you want to delete this recipe?")) {
+      try {
+        await axios.delete(`http://localhost:5000/api/recipes/${id}`);
+        navigate("/"); 
+      } catch (error) {
+        console.error("Error deleting the recipe:", error);
+      }
     }
   };
 
@@ -89,9 +100,14 @@ const RecipeEdit = () => {
                 />
               </Form.Group>
 
-              <Button variant="primary" type="submit">
-                Update Recipe
-              </Button>
+              <div className="d-flex justify-content-between">
+                <Button variant="primary" type="submit">
+                  Update Recipe
+                </Button>
+                <Button variant="danger" onClick={handleDelete}>
+                  Delete Recipe
+                </Button>
+              </div>
             </Form>
           </Card.Body>
         </Card>
