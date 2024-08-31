@@ -25,6 +25,7 @@ exports.createRecipe = async (req, res) => {
 exports.updateRecipe = async (req, res) => {
   try {
     const updatedRecipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    if (!updatedRecipe) return res.status(404).json({ message: "Recipe not found" });
     res.json(updatedRecipe);
   } catch (err) {
     res.status(400).json({ message: err.message });
@@ -46,6 +47,16 @@ exports.getRecipeById = async (req, res) => {
     const recipe = await Recipe.findById(req.params.id);
     if (!recipe) return res.status(404).json({ message: "Recipe not found" });
     res.json(recipe);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+exports.getRecipesByCategory = async (req, res) => {
+  try {
+    const category = req.params.category;
+    const recipes = await Recipe.find({ category });
+    res.json(recipes);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
