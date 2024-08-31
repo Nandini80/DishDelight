@@ -11,7 +11,6 @@ const RecipeList = () => {
     axios.get("http://localhost:5000/api/recipes")
       .then((response) => {
         setRecipes(response.data);
-
         const uniqueCategories = [...new Set(response.data.map(recipe => recipe.category))];
         setCategories(uniqueCategories);
       })
@@ -34,7 +33,6 @@ const RecipeList = () => {
   return (
     <div className="recipe-list">
       <h2>Recipe List</h2>
-
       <div className="category-filter">
         <label htmlFor="category">Browse by Category:</label>
         <select
@@ -50,7 +48,6 @@ const RecipeList = () => {
           ))}
         </select>
       </div>
-
       {recipes.length === 0 ? (
         <p>No recipes available. Try adding some!</p>
       ) : (
@@ -58,7 +55,8 @@ const RecipeList = () => {
           <div key={recipe._id}>
             <h3>{recipe.title}</h3>
             <p>{recipe.ingredients}</p>
-            <Link to={`/recipes/${recipe._id}`}>View Details</Link> | <Link to={`/recipes/${recipe._id}/edit`}>Edit</Link> {/* Add Edit link */}
+            <Link to={`/recipes/${recipe._id}`}>View Details</Link>
+            <Link to={`/recipes/${recipe._id}/edit`}>Edit</Link>
           </div>
         ))
       )}
